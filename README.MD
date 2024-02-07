@@ -1,20 +1,19 @@
-# Compose Multiplatform Application
+# Интерактивная информационная система сопровождения учебного процесса Военного учебного центра при РТУ МИРЭА
 
-## Before running!
- - check your system with [KDoctor](https://github.com/Kotlin/kdoctor)
- - install JDK 17 on your machine
- - add `local.properties` file to the project root and set a path to Android SDK there
+## Содержание
+- [Описание](#описание)
+- [Сбор требований](#сбор-требоаний)
+- [Анализ требований](#анализ-требований)
+- [Проектирование]
+- [Техническое задание]
+- [Тестирование]
+- [Релиз]
 
-### Android
-To run the application on android device/emulator:  
- - open project in Android Studio and run imported android run configuration
+## Описание
+Данный проект посвящен внедрению интерактивного мобильного ассистента, способного упорядочить и упростить организацию учебного процесса в Военном учебном центре при РТУ МИРЭА. Одной из основных проблем, с которой сталкиваются студенты – это продолжительная адаптация к порядку организации учебного процесса в ВУЦ, связанная с невозможностью получения оперативной информации по изменениям в расписании учебных занятий (месту и порядку проведения занятий, информации по преподавателям и	т.п.).
 
-To build the application bundle:
- - run `./gradlew :composeApp:assembleDebug`
- - find `.apk` file in `composeApp/build/outputs/apk/debug/composeApp-debug.apk`
+<div align="center">
+<img src="https://github.com/AndPhv/assistant_MTC/assets/90286544/09b00a4f-7df0-4019-88e5-199a773f5d55" width="400" height="300">
+</div>
 
-### iOS
-To run the application on iPhone device/simulator:
- - Open `iosApp/iosApp.xcproject` in Xcode and run standard configuration
- - Or use [Kotlin Multiplatform Mobile plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) for Android Studio
 
