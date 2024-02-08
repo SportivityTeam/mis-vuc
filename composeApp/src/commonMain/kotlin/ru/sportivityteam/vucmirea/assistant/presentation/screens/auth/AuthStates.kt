@@ -7,9 +7,7 @@ data class AuthViewState(
 
 sealed class AuthAction {
     data object navigateToHomeScreen : AuthAction()
-
     data class showError(val errorMessage: String) : AuthAction()
-
     data object showLoading : AuthAction()
 }
 
