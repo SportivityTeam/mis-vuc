@@ -1,3 +1,9 @@
+buildscript {
+    dependencies {
+        classpath(libs.moko.resources.genereator)
+    }
+}
+
 plugins {
     alias(libs.plugins.multiplatform).apply(false)
     alias(libs.plugins.compose).apply(false)
