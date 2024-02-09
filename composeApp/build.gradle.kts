@@ -49,17 +49,18 @@ kotlin {
             @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
             implementation(libs.composeImageLoader)
-            implementation(libs.odyssey.core)
-            implementation(libs.odyssey.compose)
+            implementation(libs.voyager.navigator)
             implementation(libs.napier)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.ktor.core)
-            implementation(libs.kviewmodel.core)
-            implementation(libs.kviewmodel.compose)
+            implementation(libs.voyager.screenmodel)
+            implementation(libs.voyager.koin)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.koin.core)
             implementation(libs.moko.resources.core)
             implementation(libs.moko.resources.compose)
+            implementation(project(mapOf("path" to ":data")))
+            implementation(project(mapOf("path" to ":domain")))
         }
 
         commonTest.dependencies {
@@ -73,6 +74,7 @@ kotlin {
             implementation(libs.kotlinx.coroutines.android)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.sqlDelight.driver.android)
+            implementation(libs.koin.android)
         }
 
         iosMain.dependencies {
