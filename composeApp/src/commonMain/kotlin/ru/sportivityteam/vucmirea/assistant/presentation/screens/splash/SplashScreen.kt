@@ -1,24 +1,28 @@
 package ru.sportivityteam.vucmirea.assistant.presentation.screens.splash
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import com.adeo.kviewmodel.compose.ViewModel
-import com.adeo.kviewmodel.compose.observeAsState
-import ru.alexgladkov.odyssey.compose.extensions.push
-import ru.alexgladkov.odyssey.compose.local.LocalRootController
-import ru.sportivityteam.vucmirea.assistant.presentation.navigation.NavigationTree
+import cafe.adriel.voyager.core.screen.Screen
+import cafe.adriel.voyager.koin.getScreenModel
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import ru.sportivityteam.vucmirea.assistant.presentation.screens.auth.AuthScreen
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.mvi.observeAsState
 
-@Composable
-fun SplashScreen() {
-    val rootController = LocalRootController.current
-    ViewModel(factory = { SplashVM() }) { viewModel ->
-        val viewAction = viewModel.viewActions().observeAsState()
+class SplashScreen : Screen {
+    @Composable
+    override fun Content() {
+        val rootController = LocalNavigator.currentOrThrow
+        val screenModel = getScreenModel<SplashSM>()
+        val viewAction = screenModel.viewActions().observeAsState()
 
         viewAction.value?.let { action ->
             when (action) {
-                is SplashAction.navigateToAuthScreen -> rootController.push(NavigationTree.Auth.name)
-                is SplashAction.navigateToHomeScreen -> rootController.push(NavigationTree.Home.name)
+                is SplashAction.navigateToAuthScreen -> rootController.push(AuthScreen())
+                is SplashAction.navigateToHomeScreen -> {}
             }
         }
-
+        
+        Text(text = "HELLO SPLASH")
     }
 }
