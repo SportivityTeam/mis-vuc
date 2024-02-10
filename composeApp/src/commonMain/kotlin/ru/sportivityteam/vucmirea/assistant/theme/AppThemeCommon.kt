@@ -1,6 +1,7 @@
-package ru.sogya.projects.activity_and_charity.ui.theme
+package ru.sportivityteam.vucmirea.assistant.theme
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
@@ -33,13 +34,13 @@ data class AssistantShape(
 
 object AssistnatTheme {
     internal val colors: AssistantColors
-        @Composable get() = LocalAssistantColors.current
+        @ReadOnlyComposable @Composable get() = LocalAssistantColors.current
 
     internal val typography: AssistantTypography
-        @Composable get() = LocalAssistantTypography.current
+        @ReadOnlyComposable @Composable get() = LocalAssistantTypography.current
 
     internal val shape: AssistantShape
-        @Composable get() = LocalAssistantShape.current
+        @ReadOnlyComposable @Composable get() = LocalAssistantShape.current
 }
 
 enum class AssistantSize {

@@ -1,17 +1,16 @@
 package ru.sportivityteam.vucmirea.assistant.presentation.screens.splash
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import ru.sportivityteam.vucmirea.assistant.presentation.screens.auth.AuthScreen
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseScreen
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.mvi.observeAsState
 
-class SplashScreen : Screen {
+class SplashScreen : BaseScreen() {
     @Composable
-    override fun Content() {
+    override fun ScreenContent() {
         val rootController = LocalNavigator.currentOrThrow
         val screenModel = getScreenModel<SplashSM>()
         val viewAction = screenModel.viewActions().observeAsState()
@@ -22,7 +21,5 @@ class SplashScreen : Screen {
                 is SplashAction.navigateToHomeScreen -> {}
             }
         }
-        
-        Text(text = "HELLO SPLASH")
     }
 }

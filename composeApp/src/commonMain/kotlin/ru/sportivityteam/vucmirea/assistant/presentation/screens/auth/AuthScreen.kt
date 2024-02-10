@@ -1,12 +1,10 @@
 package ru.sportivityteam.vucmirea.assistant.presentation.screens.auth
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import cafe.adriel.voyager.core.screen.Screen
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseScreen
 
-class AuthScreen:Screen{
+class AuthScreen : BaseScreen() {
     @Composable
-    override fun Content() {
-        Text(text = "Hello Auth")
+    override fun ScreenContent() {
     }
 }

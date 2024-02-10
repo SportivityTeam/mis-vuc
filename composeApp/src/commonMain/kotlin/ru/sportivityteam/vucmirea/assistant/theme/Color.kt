@@ -1,7 +1,6 @@
 package ru.sportivityteam.vucmirea.assistant.theme
 
 import androidx.compose.ui.graphics.Color
-import ru.sogya.projects.activity_and_charity.ui.theme.AssistantColors
 
 internal val basePalette = AssistantColors(
     primary = Color(0xFF0F0F0F),

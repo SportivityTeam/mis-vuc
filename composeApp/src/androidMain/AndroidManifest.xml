@@ -5,7 +5,7 @@
         android:name=".app.AndroidApp"
         android:icon="@android:drawable/ic_menu_compass"
         android:label="AssistantVucMirea"
-        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+        android:theme="@style/Theme.Assistant">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
@@ -18,5 +18,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
