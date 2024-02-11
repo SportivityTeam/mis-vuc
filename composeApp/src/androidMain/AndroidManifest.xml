@@ -3,7 +3,8 @@
 
     <application
         android:name=".app.AndroidApp"
-        android:icon="@android:drawable/ic_menu_compass"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="AssistantVucMirea"
         android:theme="@style/Theme.Assistant">
         <activity
