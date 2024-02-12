@@ -26,13 +26,3 @@ abstract class BaseScreenModel<Action> : ScreenModel {
             _viewActions.tryEmit(value)
         }
 }
-
-@Composable
-inline fun <T> StateFlow<T>.observeAsState(context: CoroutineContext = EmptyCoroutineContext): State<T> {
-    return collectAsState(context = context)
-}
-
-@Composable
-inline fun <T> SharedFlow<T>.observeAsState(context: CoroutineContext = EmptyCoroutineContext): State<T?> {
-    return collectAsState(initial = null, context = context)
-}
