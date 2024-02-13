@@ -6,7 +6,7 @@
 > Данный проект имеет лицензию [MIT](https://ru.ruwiki.ru/wiki/%D0%9B%D0%B8%D1%86%D0%B5%D0%BD%D0%B7%D0%B8%D1%8F_MIT) 
 
 <div align="center">
-<img src="https://github.com/SportivityTeam/assistant-vuc-mirea/assets/159028556/8c89b6eb-4791-4061-b7ff-b01803681eef" width="250" height="500">
+<img src="https://github.com/SportivityTeam/assistant-vuc-mirea/assets/159028556/8c89b6eb-4791-4061-b7ff-b01803681eef" width="200" height="450">
 </div>
 
 ## Сбор требований
