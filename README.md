@@ -314,4 +314,4 @@
 Следовательно, функциональные требования должны формировать **`Документ функциональной спецификации (FSD)`**.
 
 
-## Functional Specifications Document
+### Functional Specifications Document
