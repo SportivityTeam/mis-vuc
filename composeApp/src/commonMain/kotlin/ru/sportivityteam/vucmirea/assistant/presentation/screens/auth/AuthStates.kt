@@ -2,15 +2,17 @@ package ru.sportivityteam.vucmirea.assistant.presentation.screens.auth
 
 
 data class AuthViewState(
-    val buttonActivated: Boolean = false
+    val buttonActivated: Boolean = false,
+    val name: String = "",
+    val groupNumber: String = "",
+    val isLoading: Boolean = false
 )
 
 sealed class AuthAction {
-    data object navigateToHomeScreen : AuthAction()
-    data class showError(val errorMessage: String) : AuthAction()
-    data object showLoading : AuthAction()
+    data object NavigateToHomeScreen : AuthAction()
+    data object ShowError : AuthAction()
 }
 
 sealed class AuthEvent {
-    data class authClick(val name: String, val groupNumber: String) : AuthEvent()
+    data object AuthClick : AuthEvent()
 }
