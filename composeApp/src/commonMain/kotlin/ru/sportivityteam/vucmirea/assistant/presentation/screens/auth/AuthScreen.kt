@@ -2,6 +2,7 @@ package ru.sportivityteam.vucmirea.assistant.presentation.screens.auth
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -49,45 +50,50 @@ class AuthScreen : BaseScreen() {
                 }
             }
         }
-        Column(
+        Box(
             Modifier
                 .fillMaxSize()
                 .padding(horizontal = 15.dp)
-                .padding(top = 15.dp, bottom = 25.dp)
-                .paint(
-                    painter = painterResource(id = MR.images.img_background.drawableResId),
-                    contentScale = ContentScale.Crop,
-                ),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Top
+                .padding(top = 25.dp, bottom = 50.dp)
         ) {
             Image(
-                painter = painterResource(id = MR.images.img_mirea_logo.drawableResId),
+                modifier = Modifier.fillMaxSize(),
+                painter = painterResource(id = MR.images.img_background.drawableResId),
+                contentScale = ContentScale.Crop,
                 contentDescription = null,
-                Modifier
-                    .scale(3F)
-                    .padding(top = 30.dp)
             )
-            VSpacer(size = 135.dp)
-            Text(text = "Ваше имя", color = colorResource(MR.colors.white.resourceId))
-            TextField(
-                value = state.value.name,
-                onValueChange = { screenModel.setName(it) })
-            VSpacer(size = 10.dp)
-            Text(text = "Ваш номер взвода", color = colorResource(MR.colors.white.resourceId))
-            TextField(
-                value = state.value.name,
-                onValueChange = { screenModel.setGroup(it) })
-            VSpacer(size = 25.dp)
-            PrimaryButton(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 90.dp),
-                onClick = {
-                    screenModel.obtainEvent(AuthEvent.AuthClick)
-                }, text = "Войти",
-                isProgressBarVisible = state.value.isLoading
-            )
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Top
+            ) {
+                Image(
+                    painter = painterResource(id = MR.images.img_mirea_logo.drawableResId),
+                    contentDescription = null,
+                    Modifier
+                        .scale(3F)
+                        .padding(top = 30.dp)
+                )
+                VSpacer(size = 135.dp)
+                Text(text = "Ваше имя", color = colorResource(MR.colors.white.resourceId))
+                TextField(
+                    value = state.value.name,
+                    onValueChange = { screenModel.setName(it) })
+                VSpacer(size = 10.dp)
+                Text(text = "Ваш номер взвода", color = colorResource(MR.colors.white.resourceId))
+                TextField(
+                    value = state.value.name,
+                    onValueChange = { screenModel.setGroup(it) })
+                VSpacer(size = 25.dp)
+                PrimaryButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 90.dp),
+                    onClick = {
+                        screenModel.obtainEvent(AuthEvent.AuthClick)
+                    }, text = "Войти",
+                    isProgressBarVisible = state.value.isLoading
+                )
+            }
         }
     }
 }
