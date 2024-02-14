@@ -198,8 +198,8 @@ fun PrimaryButton(
     icon: @Composable (() -> Unit)? = null,
     isProgressBarVisible: Boolean = false,
     enabled: Boolean = true,
+    size: ButtonSize = ButtonSize.Medium,
 ) {
-    val size = ButtonSize.Medium
     Button(
         modifier = modifier,
         onClick = onClick,
@@ -326,7 +326,7 @@ private fun SlotContent(
             if (isProgressBarVisible) {
                 CircularProgressIndicator(
                     modifier = Modifier.size(18.dp),
-                    color = LocalContentColor.current,
+                    color = AssistantTheme.colors.white,
                     strokeWidth = 2.dp
                 )
             }
