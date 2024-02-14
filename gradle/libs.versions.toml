@@ -1,11 +1,11 @@
 [versions]
 
 kotlin = "1.9.22"
-compose = "1.5.12"
+compose = "1.6.0-rc01"
 agp = "8.2.2"
 androidx-appcompat = "1.6.1"
 androidx-activityCompose = "1.8.2"
-compose-uitooling = "1.6.0"
+compose-uitooling = "1.6.1"
 composeImageLoader = "1.7.1"
 napier = "2.7.0"
 buildConfig = "4.1.1"
