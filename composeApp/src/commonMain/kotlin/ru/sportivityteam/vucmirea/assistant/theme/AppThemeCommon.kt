@@ -32,12 +32,14 @@ data class AssistantShape(
     val cornersStyle: Shape
 )
 
-object AssistnatTheme {
+object AssistantTheme {
     internal val colors: AssistantColors
         @ReadOnlyComposable @Composable get() = LocalAssistantColors.current
 
-    internal val typography: AssistantTypography
-        @ReadOnlyComposable @Composable get() = LocalAssistantTypography.current
+    val typography: AppTypography
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalAppTypography.current
 
     internal val shape: AssistantShape
         @ReadOnlyComposable @Composable get() = LocalAssistantShape.current

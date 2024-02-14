@@ -222,10 +222,10 @@ internal fun ButtonText(
         text = text,
         textAlign = TextAlign.Center,
         style = when (size) {
-            ButtonSize.Normal -> AppTheme.typography.p1
-            ButtonSize.Small -> AppTheme.typography.p3
-            ButtonSize.Medium -> AppTheme.typography.p2
-            ButtonSize.Big -> AppTheme.typography.h4
+            ButtonSize.Normal -> AssistantTheme.typography.p1
+            ButtonSize.Small -> AssistantTheme.typography.p3
+            ButtonSize.Medium -> AssistantTheme.typography.p2
+            ButtonSize.Big -> AssistantTheme.typography.h4
         },
         color = AssistantTheme.colors.white,
     )
