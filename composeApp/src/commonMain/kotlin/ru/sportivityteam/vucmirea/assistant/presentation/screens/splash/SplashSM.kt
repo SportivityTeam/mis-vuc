@@ -12,8 +12,8 @@ class SplashSM(
     init {
         screenModelScope.launch {
             getUserLoginUseCase().collect { state ->
-                if (state is State.Success) viewAction = SplashAction.navigateToHomeScreen
-                else if (state is State.Failed) viewAction = SplashAction.navigateToAuthScreen
+                if (state is State.Success) viewAction = SplashAction.NavigateToHomeScreen
+                else if (state is State.Failed) viewAction = SplashAction.NavigateToAuthScreen
             }
         }
     }

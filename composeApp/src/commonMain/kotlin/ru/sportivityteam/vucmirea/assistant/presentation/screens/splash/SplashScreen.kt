@@ -36,8 +36,8 @@ class SplashScreen : BaseScreen() {
 
         viewAction.value?.let { action ->
             when (action) {
-                is SplashAction.navigateToAuthScreen -> rootController.push(AuthScreen())
-                is SplashAction.navigateToHomeScreen -> {}
+                is SplashAction.NavigateToAuthScreen -> rootController.push(AuthScreen())
+                is SplashAction.NavigateToHomeScreen -> {}
             }
         }
     }
