@@ -1,4 +1,4 @@
-package ru.sogya.projects.activity_and_charity.ui.component
+package ru.sportivityteam.vucmirea.assistant.presentation.ui.component
 
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
