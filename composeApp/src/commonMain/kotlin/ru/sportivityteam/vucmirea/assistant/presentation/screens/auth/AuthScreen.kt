@@ -6,47 +6,43 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.paint
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.VSpacer
 import ru.sportivityteam.vucmirea.assistant.MR
+import ru.sportivityteam.vucmirea.assistant.presentation.screens.home.HomeScreen
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.AuthCard
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseScreen
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.ButtonSize
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.ButtonSlot
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.PrimaryButton
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.VSpacer
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.mvi.observeAsState
+import ru.sportivityteam.vucmirea.assistant.theme.AssistantTheme
 
 class AuthScreen : BaseScreen() {
-    @Preview
     @Composable
     override fun ScreenContent() {
         val rootController = LocalNavigator.currentOrThrow
         val screenModel = getScreenModel<AuthSM>()
         val action = screenModel.viewActions().observeAsState()
         val state = screenModel.viewStates().observeAsState()
-        val configuration = LocalConfiguration.current
 
         action.value?.let {
             when (it) {
                 is AuthAction.NavigateToHomeScreen -> {
-
-                }
-
-                is AuthAction.ShowError -> {
-
+                    rootController.push(HomeScreen())
                 }
             }
         }
@@ -70,28 +66,44 @@ class AuthScreen : BaseScreen() {
                     painter = painterResource(id = MR.images.img_mirea_logo.drawableResId),
                     contentDescription = null,
                     Modifier
-                        .scale(3F)
+                        .height(110.dp)
+                        .width(110.dp)
                         .padding(top = 30.dp)
                 )
-                VSpacer(size = 135.dp)
-                Text(text = "Ваше имя", color = colorResource(MR.colors.white.resourceId))
-                TextField(
-                    value = state.value.name,
-                    onValueChange = { screenModel.setName(it) })
-                VSpacer(size = 10.dp)
-                Text(text = "Ваш номер взвода", color = colorResource(MR.colors.white.resourceId))
-                TextField(
-                    value = state.value.name,
-                    onValueChange = { screenModel.setGroup(it) })
+                VSpacer(size = 100.dp)
+                Text(
+                    text = "Авторизация",
+                    color = colorResource(MR.colors.white.resourceId),
+                    style = AssistantTheme.typography.h3
+                )
                 VSpacer(size = 25.dp)
+                AuthCard(
+                    label = "Ваше имя",
+                    text = state.value.name
+                ) {
+                    screenModel.setName(it)
+                }
+                VSpacer(size = 15.dp)
+                AuthCard(
+                    label = "Ваш номер взвода",
+                    text = state.value.groupNumber
+                ) {
+                    screenModel.setGroup(it)
+                }
+                VSpacer(size = 30.dp)
                 PrimaryButton(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 90.dp),
+                        .padding(horizontal = 16.dp),
                     onClick = {
                         screenModel.obtainEvent(AuthEvent.AuthClick)
-                    }, text = "Войти",
-                    isProgressBarVisible = state.value.isLoading
+                        hideKeyboard()
+                    },
+                    enabled = state.value.isButtonActivated,
+                    text = "Войти",
+                    size = ButtonSize.Normal,
+                    isProgressBarVisible = state.value.isLoading,
+                    slotPosition = ButtonSlot.End
                 )
             }
         }
