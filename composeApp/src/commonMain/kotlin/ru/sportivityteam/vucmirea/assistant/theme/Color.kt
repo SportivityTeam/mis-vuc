@@ -4,7 +4,7 @@ import androidx.compose.ui.graphics.Color
 
 internal val basePalette = AssistantColors(
     primary = Color(0xFF000353),
-    secondary = Color(0xFF131315),
+    secondary = Color(0xFFFFFFFF),
     tertiary = Color(0xFF1B1B1B),
     accent = Color(0xFFE77D00),
     white = Color(0xFFFFFFFF),
