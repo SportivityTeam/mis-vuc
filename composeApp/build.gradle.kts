@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.buildConfig)
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.sqlDelight)
+    id("dev.icerock.mobile.multiplatform-resources")
 }
 
 kotlin {
@@ -28,25 +29,39 @@ kotlin {
 //    }
 
     sourceSets {
+        getByName("androidMain") {
+            kotlin.srcDir("build/generated/moko/androidMain/src")
+        }
         all {
             languageSettings {
                 optIn("org.jetbrains.compose.resources.ExperimentalResourceApi")
             }
         }
+
+        multiplatformResources {
+            resourcesPackage.set("ru.sportivityteam.vucmirea.assistant")
+        }
+
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.material3)
+            implementation(compose.material)
             implementation(compose.materialIconsExtended)
             @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
-            implementation(libs.voyager.navigator)
             implementation(libs.composeImageLoader)
+            implementation(libs.voyager.navigator)
             implementation(libs.napier)
             implementation(libs.kotlinx.coroutines.core)
-            implementation(libs.moko.mvvm)
             implementation(libs.ktor.core)
+            implementation(libs.voyager.screenmodel)
+            implementation(libs.voyager.koin)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.koin.core)
+            implementation(libs.moko.resources.core)
+            implementation(libs.moko.resources.compose)
+            implementation(project(mapOf("path" to ":data")))
+            implementation(project(mapOf("path" to ":domain")))
         }
 
         commonTest.dependencies {
@@ -60,13 +75,13 @@ kotlin {
             implementation(libs.kotlinx.coroutines.android)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.sqlDelight.driver.android)
+            implementation(libs.koin.android)
         }
 
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
             implementation(libs.sqlDelight.driver.native)
         }
-
     }
 }
 
@@ -84,7 +99,7 @@ android {
     }
     sourceSets["main"].apply {
         manifest.srcFile("src/androidMain/AndroidManifest.xml")
-        res.srcDirs("src/androidMain/resources")
+        res.srcDirs("src/androidMain/res")
         resources.srcDirs("src/commonMain/resources")
     }
     compileOptions {
