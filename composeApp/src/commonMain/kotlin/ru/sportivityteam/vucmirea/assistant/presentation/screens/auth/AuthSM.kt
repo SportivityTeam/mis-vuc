@@ -7,6 +7,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import ru.sportivityteam.vucmirea.assistant.domain.usecase.auth.AuthUserUseCase
 import ru.sportivityteam.vucmirea.assistant.domain.util.State
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.extensions.setFilled
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.mvi.BaseStateScreenModel
 
 class AuthSM(
@@ -27,12 +28,12 @@ class AuthSM(
     }
 
     override fun obtainEvent(viewEvent: AuthEvent) {
-        when (viewEvent) {
-            is AuthEvent.AuthClick -> {
-                screenModelScope.launch {
+        screenModelScope.launch {
+            when (viewEvent) {
+                is AuthEvent.AuthClick -> {
                     authUserUseCase(
-                        viewStates().value.name,
-                        viewStates().value.groupNumber
+                        viewStates().value.userName,
+                        viewStates().value.userGroupNumber
                     ).collect {
                         when (it) {
                             is State.Loading -> setLoading(true)
@@ -47,23 +48,17 @@ class AuthSM(
                         }
                     }
                 }
+
+                is AuthEvent.SetUserName -> {
+                    viewState = viewState.copy(userName = viewEvent.name)
+                    isNameFilledFlow.setFilled(viewEvent.name)
+                }
+
+                is AuthEvent.SetUserGroup -> {
+                    viewState = viewState.copy(userGroupNumber = viewEvent.group)
+                    isGroupFilledFlow.setFilled(viewEvent.group)
+                }
             }
-        }
-    }
-
-    fun setName(newName: String) {
-        screenModelScope.launch {
-            viewState = viewState.copy(name = newName)
-            if (newName.isNotEmpty()) isNameFilledFlow.emit(value = true)
-            else isNameFilledFlow.emit(value = false)
-        }
-    }
-
-    fun setGroup(newGroup: String) {
-        screenModelScope.launch {
-            viewState = viewState.copy(groupNumber = newGroup)
-            if (newGroup.isNotEmpty()) isGroupFilledFlow.emit(value = true)
-            else isGroupFilledFlow.emit(value = false)
         }
     }
 

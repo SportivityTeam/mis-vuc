@@ -79,16 +79,16 @@ class AuthScreen : BaseScreen() {
                 VSpacer(size = 25.dp)
                 AuthCard(
                     label = "Ваше имя",
-                    text = state.value.name
+                    text = state.value.userName
                 ) {
-                    screenModel.setName(it)
+                    screenModel.obtainEvent(AuthEvent.SetUserName(it))
                 }
                 VSpacer(size = 15.dp)
                 AuthCard(
                     label = "Ваш номер взвода",
-                    text = state.value.groupNumber
+                    text = state.value.userGroupNumber
                 ) {
-                    screenModel.setGroup(it)
+                    screenModel.obtainEvent(AuthEvent.SetUserGroup(it))
                 }
                 VSpacer(size = 30.dp)
                 PrimaryButton(

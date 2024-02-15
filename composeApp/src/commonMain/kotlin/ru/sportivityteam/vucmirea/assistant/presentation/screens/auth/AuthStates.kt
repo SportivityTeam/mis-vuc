@@ -3,8 +3,8 @@ package ru.sportivityteam.vucmirea.assistant.presentation.screens.auth
 
 data class AuthViewState(
     val isButtonActivated: Boolean = false,
-    val name: String = "",
-    val groupNumber: String = "",
+    val userName: String = "",
+    val userGroupNumber: String = "",
     val isLoading: Boolean = false
 )
 
@@ -14,4 +14,7 @@ sealed class AuthAction {
 
 sealed class AuthEvent {
     data object AuthClick : AuthEvent()
+    data class SetUserName(val name: String) : AuthEvent()
+
+    data class SetUserGroup(val group: String) : AuthEvent()
 }
