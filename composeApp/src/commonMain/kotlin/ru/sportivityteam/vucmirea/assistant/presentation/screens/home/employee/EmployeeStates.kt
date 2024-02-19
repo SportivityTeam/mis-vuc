@@ -1,4 +1,4 @@
-package ru.sportivityteam.vucmirea.assistant.presentation.screens.home
+package ru.sportivityteam.vucmirea.assistant.presentation.screens.home.employee
 
 data class HomeViewState(
     val isLoading: Boolean = false,
