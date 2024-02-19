@@ -13,6 +13,7 @@ import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import ru.sportivityteam.vucmirea.assistant.MR
 import ru.sportivityteam.vucmirea.assistant.presentation.screens.auth.AuthScreen
+import ru.sportivityteam.vucmirea.assistant.presentation.screens.home.HomeScreen
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseScreen
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.mvi.observeAsState
 
@@ -36,8 +37,8 @@ class SplashScreen : BaseScreen() {
 
         viewAction.value?.let { action ->
             when (action) {
-                is SplashAction.NavigateToAuthScreen -> rootController.push(AuthScreen())
-                is SplashAction.NavigateToHomeScreen -> {}
+                is SplashAction.NavigateToAuthScreen -> rootController.replace(AuthScreen())
+                is SplashAction.NavigateToHomeScreen -> rootController.replace(HomeScreen())
             }
         }
     }

@@ -42,7 +42,7 @@ class AuthScreen : BaseScreen() {
         action.value?.let {
             when (it) {
                 is AuthAction.NavigateToHomeScreen -> {
-                    rootController.push(HomeScreen())
+                    rootController.replace(HomeScreen())
                 }
             }
         }
