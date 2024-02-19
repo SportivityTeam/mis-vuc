@@ -51,6 +51,7 @@ kotlin {
             implementation(compose.components.resources)
             implementation(libs.composeImageLoader)
             implementation(libs.voyager.navigator)
+            implementation(libs.voyager.tabnav)
             implementation(libs.napier)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.ktor.core)
