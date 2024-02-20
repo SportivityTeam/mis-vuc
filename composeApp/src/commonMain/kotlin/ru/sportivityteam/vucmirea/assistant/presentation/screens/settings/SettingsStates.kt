@@ -1,17 +1,18 @@
 package ru.sportivityteam.vucmirea.assistant.presentation.screens.settings
 
-data class HomeViewState(
+data class SettingsViewState(
     val isLoading: Boolean = false,
-    val groupNumber: String = "",
-    val date: String = "",
-    val lessons: List<Unit> = listOf()
+    val appVersion: String = "",
+    val telegramUri:String = "https://t.me/+NMT-uTngy2w1MDA6"
 )
 
-sealed class HomeViewAction {
-    data object NavigateToSettings : HomeViewAction()
-    data class NavigateToLesson(val lessonId: String) : HomeViewAction()
+sealed class SettingsViewAction {
+    data object NavigateToTelegram : SettingsViewAction()
+    data object LogOut : SettingsViewAction()
 }
 
-sealed class HomeViewEvent {
-    data class OpenLesson(val lessonId: String) : HomeViewEvent()
+sealed class SettingsViewEvent {
+    data object LogOut : SettingsViewEvent()
+
+    data object OpenTelegram : SettingsViewEvent()
 }
