@@ -4,6 +4,7 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.res.painterResource
+import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
 import ru.sportivityteam.vucmirea.assistant.MR
@@ -30,7 +31,7 @@ object TimetableTab : Tab {
 
     @Composable
     override fun Content() {
-        TimetableScreen()
+        Navigator(TimetableScreen())
     }
 }
 
@@ -51,7 +52,7 @@ object InfoTab : Tab {
 
     @Composable
     override fun Content() {
-        InfoScreen()
+        Navigator(InfoScreen())
     }
 }
 
@@ -72,7 +73,7 @@ object EmployeeTab : Tab {
 
     @Composable
     override fun Content() {
-        EmployeeScreen()
+        Navigator(EmployeeScreen())
     }
 }
 

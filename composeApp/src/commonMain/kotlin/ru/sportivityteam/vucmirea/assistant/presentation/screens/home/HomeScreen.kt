@@ -5,17 +5,26 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import cafe.adriel.voyager.navigator.tab.CurrentTab
 import cafe.adriel.voyager.navigator.tab.TabNavigator
 import ru.sportivityteam.vucmirea.assistant.presentation.navigation.BottomBar
 import ru.sportivityteam.vucmirea.assistant.presentation.navigation.TimetableTab
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseScreen
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.TopNavigationBar
+import ru.sportivityteam.vucmirea.assistant.theme.AssistantTheme
 
 class HomeScreen : BaseScreen() {
     @Composable
     override fun ScreenContent() {
+        val navigator = LocalNavigator.currentOrThrow
         TabNavigator(TimetableTab) {
             Scaffold(
+                containerColor = AssistantTheme.colors.primary,
+                topBar = {
+                    TopNavigationBar(navigator)
+                },
                 content = {
                     Box(modifier = Modifier.padding(it)) {
                         CurrentTab()
