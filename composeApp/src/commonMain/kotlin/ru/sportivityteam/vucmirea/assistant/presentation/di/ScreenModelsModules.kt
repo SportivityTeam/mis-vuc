@@ -14,5 +14,5 @@ internal fun screenModelsModule() = module {
     factory { TimetableSM() }
     factory { EmployeeSM() }
     factory { InfoSM() }
-    factory { SettingsSM() }
+    factory { SettingsSM(get()) }
 }

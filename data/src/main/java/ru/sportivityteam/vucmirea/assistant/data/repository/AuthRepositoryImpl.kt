@@ -31,7 +31,7 @@ class AuthRepositoryImpl : AuthRepository {
 
     override suspend fun logout(): Flow<State<Unit>> = flow<State<Unit>> {
         emit(State.loading())
-        settings.putBoolean(USER_SETTINGS_KEY, true)
+        settings.putBoolean(USER_SETTINGS_KEY, false)
         emit(State.success())
     }.flowOn(Dispatchers.IO)
 
