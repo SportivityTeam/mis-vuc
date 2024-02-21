@@ -14,11 +14,9 @@ import cafe.adriel.voyager.core.screen.Screen
 import ru.sportivityteam.vucmirea.assistant.theme.AppTheme
 
 abstract class BaseScreen : Screen {
-    private var keyboardController: SoftwareKeyboardController? = null
 
     @Composable
     override fun Content() {
-        keyboardController = LocalSoftwareKeyboardController.current
         AppTheme {
             CompositionLocalProvider {
                 Box(
@@ -33,10 +31,6 @@ abstract class BaseScreen : Screen {
                 }
             }
         }
-    }
-
-    fun hideKeyboard() {
-        keyboardController?.hide()
     }
 
     @Composable
