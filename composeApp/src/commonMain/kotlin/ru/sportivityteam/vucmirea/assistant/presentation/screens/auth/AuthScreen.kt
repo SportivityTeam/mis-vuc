@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.platform.SoftwareKeyboardController
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -29,6 +31,7 @@ import ru.sportivityteam.vucmirea.assistant.theme.AssistantTheme
 class AuthScreen : BaseScreen() {
     @Composable
     override fun ScreenContent() {
+        val keyboardController = LocalSoftwareKeyboardController.current
         val rootController = LocalNavigator.currentOrThrow
         val screenModel = getScreenModel<AuthSM>()
         val action = screenModel.viewActions().observeAsState()
@@ -77,7 +80,7 @@ class AuthScreen : BaseScreen() {
                     .padding(horizontal = 16.dp),
                 onClick = {
                     screenModel.obtainEvent(AuthEvent.AuthClick)
-                    hideKeyboard()
+                    keyboardController?.hide()
                 },
                 enabled = state.value.isButtonActivated,
                 text = "Войти",
