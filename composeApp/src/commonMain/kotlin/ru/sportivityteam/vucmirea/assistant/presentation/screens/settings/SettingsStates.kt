@@ -2,8 +2,10 @@ package ru.sportivityteam.vucmirea.assistant.presentation.screens.settings
 
 data class SettingsViewState(
     val isLoading: Boolean = false,
-    val appVersion: String = "",
-    val telegramUri:String = "https://t.me/+NMT-uTngy2w1MDA6"
+    val appVersion: String = "0.0.1",
+    val isTelegramBottomSheetOpen: Boolean = false,
+    val isLogOutBottomSheetOpen: Boolean = false,
+    val telegramUri: String = "https://t.me/c/2085543550/3"
 )
 
 sealed class SettingsViewAction {
@@ -13,6 +15,7 @@ sealed class SettingsViewAction {
 
 sealed class SettingsViewEvent {
     data object LogOut : SettingsViewEvent()
-
+    data object OpenLogoutBottomSheet : SettingsViewEvent()
     data object OpenTelegram : SettingsViewEvent()
+    data object OpenTelegramBottomSheet : SettingsViewEvent()
 }

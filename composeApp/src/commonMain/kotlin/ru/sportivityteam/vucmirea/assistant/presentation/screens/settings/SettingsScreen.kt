@@ -1,5 +1,8 @@
 package ru.sportivityteam.vucmirea.assistant.presentation.screens.settings
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -18,14 +21,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalUriHandler
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.koin.getScreenModel
-import cafe.adriel.voyager.navigator.LocalNavigator
-import cafe.adriel.voyager.navigator.currentOrThrow
 import ru.sportivityteam.vucmirea.assistant.MR
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BackgroundBox
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseScreen
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.VSpacer
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.WSpacer
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.mvi.observeAsState
 import ru.sportivityteam.vucmirea.assistant.theme.AssistantTheme
@@ -35,7 +38,6 @@ class SettingsScreen : BaseScreen() {
     @Composable
     override fun ScreenContent() {
         val uriHandler = LocalUriHandler.current
-        val rootController = LocalNavigator.currentOrThrow
         val screenModel = getScreenModel<SettingsSM>()
         val action = screenModel.viewActions().observeAsState()
         val state = screenModel.viewStates().observeAsState()
@@ -60,6 +62,7 @@ class SettingsScreen : BaseScreen() {
             paddingTop = 0.dp,
             horizontalAlignment = Alignment.Start
         ) {
+            SettingsHeader(appVersion = state.value.appVersion)
             TextButton(
                 onClick = { screenModel.obtainEvent(SettingsViewEvent.OpenTelegram) },
                 colors = ButtonDefaults.buttonColors(
@@ -83,13 +86,37 @@ class SettingsScreen : BaseScreen() {
                     .fillMaxWidth()
                     .padding(horizontal = 90.dp)
                     .padding(bottom = 20.dp),
-                onClick = { screenModel.obtainEvent(SettingsViewEvent.LogOut) },
+                onClick = { screenModel.obtainEvent(SettingsViewEvent.OpenLogoutBottomSheet) },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Red,
                     contentColor = AssistantTheme.colors.white
                 )
             ) {
                 Text(text = "Выйти", style = AssistantTheme.typography.p1)
+            }
+        }
+    }
+
+    @Composable
+    private fun SettingsHeader(appVersion: String) {
+        Row(modifier = Modifier.fillMaxWidth().padding(20.dp)) {
+            Image(
+                modifier = Modifier.width(60.dp).height(60.dp),
+                painter = painterResource(MR.images.img_mirea_logo.drawableResId),
+                contentDescription = null
+            )
+            Column(modifier = Modifier.padding(horizontal = 15.dp)) {
+                Text(
+                    text = "Ассистент ВУЦ МИРЭА",
+                    style = AssistantTheme.typography.p1,
+                    color = AssistantTheme.colors.white
+                )
+                VSpacer(size = 20.dp)
+                Text(
+                    text = "Версия: $appVersion",
+                    style = AssistantTheme.typography.p2,
+                    color = AssistantTheme.colors.white
+                )
             }
         }
     }

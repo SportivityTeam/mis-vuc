@@ -6,8 +6,18 @@ class SettingsSM : BaseStateScreenModel<SettingsViewState, SettingsViewAction, S
     (initialState = SettingsViewState()) {
     override fun obtainEvent(viewEvent: SettingsViewEvent) {
         when (viewEvent) {
-            SettingsViewEvent.LogOut -> {}
+            SettingsViewEvent.LogOut -> {
+
+            }
+
             SettingsViewEvent.OpenTelegram -> viewAction = SettingsViewAction.NavigateToTelegram
+            SettingsViewEvent.OpenLogoutBottomSheet -> {
+                viewState = viewState.copy(isLogOutBottomSheetOpen = true)
+            }
+
+            SettingsViewEvent.OpenTelegramBottomSheet -> {
+                viewState = viewState.copy(isTelegramBottomSheetOpen = true)
+            }
         }
     }
 }
