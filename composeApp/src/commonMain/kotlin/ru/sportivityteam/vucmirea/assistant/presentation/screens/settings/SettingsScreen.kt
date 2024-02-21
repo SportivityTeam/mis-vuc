@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -25,8 +24,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.koin.getScreenModel
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
 import ru.sportivityteam.vucmirea.assistant.MR
+import ru.sportivityteam.vucmirea.assistant.presentation.screens.auth.AuthScreen
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BackgroundBox
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseBottomSheet
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseButton
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseScreen
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.VSpacer
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.WSpacer
@@ -37,6 +41,7 @@ class SettingsScreen : BaseScreen() {
     @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun ScreenContent() {
+        val rootController = LocalNavigator.currentOrThrow
         val uriHandler = LocalUriHandler.current
         val screenModel = getScreenModel<SettingsSM>()
         val action = screenModel.viewActions().observeAsState()
@@ -44,7 +49,7 @@ class SettingsScreen : BaseScreen() {
 
         action.value?.let {
             when (it) {
-                SettingsViewAction.LogOut -> TODO()
+                SettingsViewAction.LogOut -> rootController.replace(AuthScreen())
                 SettingsViewAction.NavigateToTelegram -> uriHandler.openUri(state.value.telegramUri)
             }
         }
@@ -64,7 +69,7 @@ class SettingsScreen : BaseScreen() {
         ) {
             SettingsHeader(appVersion = state.value.appVersion)
             TextButton(
-                onClick = { screenModel.obtainEvent(SettingsViewEvent.OpenTelegram) },
+                onClick = { screenModel.obtainEvent(SettingsViewEvent.OpenTelegramBottomSheet) },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,
                     contentColor = AssistantTheme.colors.white
@@ -81,27 +86,69 @@ class SettingsScreen : BaseScreen() {
                 Text(text = "Обратная связь", style = AssistantTheme.typography.h3)
             }
             WSpacer()
-            Button(
+            BaseButton(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 90.dp)
                     .padding(bottom = 20.dp),
                 onClick = { screenModel.obtainEvent(SettingsViewEvent.OpenLogoutBottomSheet) },
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.Red,
-                    contentColor = AssistantTheme.colors.white
+                text = "Выйти",
+                containerColor = Color.Red
+            )
+        }
+        if (state.value.isLogOutBottomSheetOpen) {
+            BaseBottomSheet(onDismissRequest = {
+                screenModel.obtainEvent(SettingsViewEvent.CloseLogOutBottomSheet)
+            }, header = "Выход из аккаунта", description = "Вы уверены, что хотите выйти?") {
+                BaseButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 30.dp),
+                    onClick = { screenModel.obtainEvent(SettingsViewEvent.LogOut) },
+                    text = "Выйти",
+                    containerColor = Color.Red
                 )
+                VSpacer(size = 20.dp)
+                BaseButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 30.dp),
+                    onClick = { screenModel.obtainEvent(SettingsViewEvent.CloseLogOutBottomSheet) },
+                    text = "Отмена",
+                    containerColor = AssistantTheme.colors.disable
+                )
+            }
+        }
+        if (state.value.isTelegramBottomSheetOpen) {
+            BaseBottomSheet(
+                onDismissRequest = {
+                    screenModel.obtainEvent(SettingsViewEvent.CloseTelegramBottomSheet)
+                },
+                header = "Чат в Telegram",
+                description = "При некорректном отображении расписания или неисправностях в приложении сообщите в чат беседу"
             ) {
-                Text(text = "Выйти", style = AssistantTheme.typography.p1)
+                BaseButton(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 30.dp),
+                    onClick = { screenModel.obtainEvent(SettingsViewEvent.OpenTelegram) },
+                    text = "Перейти в чат"
+                )
             }
         }
     }
 
     @Composable
     private fun SettingsHeader(appVersion: String) {
-        Row(modifier = Modifier.fillMaxWidth().padding(20.dp)) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp)
+        ) {
             Image(
-                modifier = Modifier.width(60.dp).height(60.dp),
+                modifier = Modifier
+                    .width(60.dp)
+                    .height(60.dp),
                 painter = painterResource(MR.images.img_mirea_logo.drawableResId),
                 contentDescription = null
             )

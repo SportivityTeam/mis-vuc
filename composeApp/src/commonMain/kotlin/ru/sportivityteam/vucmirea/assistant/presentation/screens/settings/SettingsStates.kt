@@ -16,6 +16,8 @@ sealed class SettingsViewAction {
 sealed class SettingsViewEvent {
     data object LogOut : SettingsViewEvent()
     data object OpenLogoutBottomSheet : SettingsViewEvent()
+    data object CloseLogOutBottomSheet : SettingsViewEvent()
     data object OpenTelegram : SettingsViewEvent()
     data object OpenTelegramBottomSheet : SettingsViewEvent()
+    data object CloseTelegramBottomSheet : SettingsViewEvent()
 }
