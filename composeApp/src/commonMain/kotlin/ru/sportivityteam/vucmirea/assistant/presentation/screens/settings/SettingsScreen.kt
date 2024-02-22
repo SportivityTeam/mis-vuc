@@ -8,12 +8,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,16 +29,16 @@ import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.Background
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseBottomSheet
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseButton
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseScreen
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.TopNavigationBar
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.VSpacer
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.WSpacer
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.mvi.observeAsState
 import ru.sportivityteam.vucmirea.assistant.theme.AssistantTheme
 
 class SettingsScreen : BaseScreen() {
-    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     override fun ScreenContent() {
-        val rootController = LocalNavigator.currentOrThrow
+        val navigator = LocalNavigator.currentOrThrow
         val uriHandler = LocalUriHandler.current
         val screenModel = getScreenModel<SettingsSM>()
         val action = screenModel.viewActions().observeAsState()
@@ -49,20 +46,17 @@ class SettingsScreen : BaseScreen() {
 
         action.value?.let {
             when (it) {
-                SettingsViewAction.LogOut -> rootController.replace(AuthScreen())
+                SettingsViewAction.LogOut -> navigator.replace(AuthScreen())
                 SettingsViewAction.NavigateToTelegram -> uriHandler.openUri(state.value.telegramUri)
             }
         }
 
-        TopAppBar(
-            colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = AssistantTheme.colors.primary,
-                titleContentColor = AssistantTheme.colors.white
-            ),
-            title = {
-                Text(text = "Настройки")
-            },
+        TopNavigationBar(
+            navigator,
+            title = "Настройки",
+            isNavigationButtonEnable = true
         )
+
         BackgroundBox(
             paddingTop = 0.dp,
             horizontalAlignment = Alignment.Start
@@ -108,7 +102,7 @@ class SettingsScreen : BaseScreen() {
                     text = "Выйти",
                     containerColor = Color.Red
                 )
-                VSpacer(size = 20.dp)
+                VSpacer(size = 15.dp)
                 BaseButton(
                     modifier = Modifier
                         .fillMaxWidth()

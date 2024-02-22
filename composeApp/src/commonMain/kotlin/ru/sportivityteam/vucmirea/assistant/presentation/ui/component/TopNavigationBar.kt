@@ -16,24 +16,44 @@ import ru.sportivityteam.vucmirea.assistant.theme.AssistantTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopNavigationBar(navigator: Navigator) {
+fun TopNavigationBar(
+    navigator: Navigator,
+    title: String,
+    isNavigationButtonEnable: Boolean = false,
+    isActionButtonEnabled: Boolean = false
+) {
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = AssistantTheme.colors.primary,
             titleContentColor = AssistantTheme.colors.white,
-            actionIconContentColor = AssistantTheme.colors.white
+            actionIconContentColor = AssistantTheme.colors.white,
+            navigationIconContentColor = AssistantTheme.colors.white
         ),
+        navigationIcon = {
+            if (isNavigationButtonEnable) {
+                IconButton(onClick = {
+                    navigator.pop()
+                }) {
+                    Icon(
+                        painter = painterResource(id = MR.images.ic_arrow_back.drawableResId),
+                        contentDescription = null
+                    )
+                }
+            }
+        },
         title = {
-            Text(text = "Учебный взвод")
+            Text(text = title)
         },
         actions = {
-            IconButton(onClick = {
-                navigator.push(SettingsScreen())
-            }) {
-                Icon(
-                    painter = painterResource(id = MR.images.ic_settings.drawableResId),
-                    contentDescription = null
-                )
+            if (isActionButtonEnabled) {
+                IconButton(onClick = {
+                    navigator.push(SettingsScreen())
+                }) {
+                    Icon(
+                        painter = painterResource(id = MR.images.ic_settings.drawableResId),
+                        contentDescription = null
+                    )
+                }
             }
         }
     )

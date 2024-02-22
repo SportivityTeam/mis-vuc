@@ -23,7 +23,11 @@ class HomeScreen : BaseScreen() {
             Scaffold(
                 containerColor = AssistantTheme.colors.primary,
                 topBar = {
-                    TopNavigationBar(navigator)
+                    TopNavigationBar(
+                        navigator,
+                        title = "Учебный взвод",
+                        isActionButtonEnabled = true
+                    )
                 },
                 content = {
                     Box(modifier = Modifier.padding(it)) {
