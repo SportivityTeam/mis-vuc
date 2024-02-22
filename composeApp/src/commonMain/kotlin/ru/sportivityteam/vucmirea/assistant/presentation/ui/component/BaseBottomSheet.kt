@@ -40,6 +40,6 @@ fun BaseBottomSheet(
         )
         VSpacer(size = 40.dp)
         content()
-        VSpacer(size = 110.dp)
+        VSpacer(size = 65.dp)
     }
 }
