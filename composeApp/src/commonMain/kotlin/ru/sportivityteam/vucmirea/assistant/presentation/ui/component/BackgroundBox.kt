@@ -21,13 +21,14 @@ import ru.sportivityteam.vucmirea.assistant.theme.AssistantTheme
 @Composable
 fun BackgroundBox(
     paddingTop: Dp = 25.dp,
+    paddingBottom: Dp = 50.dp,
     horizontalAlignment: Alignment.Horizontal = Alignment.CenterHorizontally,
     content: @Composable (ColumnScope.() -> Unit)
 ) = Box(
     Modifier
         .fillMaxSize()
         .padding(horizontal = 15.dp)
-        .padding(top = paddingTop, bottom = 50.dp)
+        .padding(top = paddingTop, bottom = paddingBottom)
         .clip(AssistantTheme.shape.cornersStyle)
 ) {
     Image(
