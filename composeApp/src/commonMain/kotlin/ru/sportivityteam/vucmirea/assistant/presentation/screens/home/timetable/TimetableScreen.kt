@@ -13,9 +13,7 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import ru.sportivityteam.vucmirea.assistant.presentation.screens.auth.AuthScreen
 import ru.sportivityteam.vucmirea.assistant.presentation.screens.lesson.LessonScreen
-import ru.sportivityteam.vucmirea.assistant.presentation.screens.settings.SettingsViewAction
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BackgroundBox
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseScreen
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.TimetableListItem
