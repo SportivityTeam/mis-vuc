@@ -5,6 +5,7 @@ import ru.sportivityteam.vucmirea.assistant.presentation.screens.auth.AuthSM
 import ru.sportivityteam.vucmirea.assistant.presentation.screens.home.employee.EmployeeSM
 import ru.sportivityteam.vucmirea.assistant.presentation.screens.home.info.InfoSM
 import ru.sportivityteam.vucmirea.assistant.presentation.screens.home.timetable.TimetableSM
+import ru.sportivityteam.vucmirea.assistant.presentation.screens.lesson.LessonSM
 import ru.sportivityteam.vucmirea.assistant.presentation.screens.settings.SettingsSM
 import ru.sportivityteam.vucmirea.assistant.presentation.screens.splash.SplashSM
 
@@ -15,4 +16,5 @@ internal fun screenModelsModule() = module {
     factory { EmployeeSM() }
     factory { InfoSM() }
     factory { SettingsSM(get()) }
+    factory { LessonSM() }
 }
