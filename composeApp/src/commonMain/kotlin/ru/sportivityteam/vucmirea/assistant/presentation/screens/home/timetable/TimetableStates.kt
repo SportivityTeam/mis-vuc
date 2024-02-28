@@ -13,13 +13,15 @@ data class TimetableViewState(
             lesson = "ВСП",
             employee = "Ренкавик В.А.",
             lessonTime = "09:00-10:30"
-        ),LessonPresentation(
+        ),
+        LessonPresentation(
             "2323",
             audience = "Ауд. 101",
             lesson = "ВСП",
             employee = "Ренкавик В.А.",
             lessonTime = "10:40-12:10"
-        ),LessonPresentation(
+        ),
+        LessonPresentation(
             "2323",
             audience = "Ауд. 101",
             lesson = "ВСП",
@@ -42,4 +44,5 @@ sealed class TimetableViewAction {
 
 sealed class TimetableViewEvent {
     data class OpenLesson(val lessonId: String) : TimetableViewEvent()
+    data object Clear : TimetableViewEvent()
 }

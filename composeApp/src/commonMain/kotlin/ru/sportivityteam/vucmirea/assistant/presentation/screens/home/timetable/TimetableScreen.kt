@@ -31,8 +31,10 @@ class TimetableScreen : BaseScreen() {
 
         action.value?.let { viewAction ->
             when (viewAction) {
-                is TimetableViewAction.NavigateToLesson ->
-                    navigator.replace(LessonScreen(viewAction.lessonId))
+                is TimetableViewAction.NavigateToLesson -> {
+                    navigator.parent?.parent?.push(LessonScreen(viewAction.lessonId))
+                    screenModel.obtainEvent(TimetableViewEvent.Clear)
+                }
             }
         }
 

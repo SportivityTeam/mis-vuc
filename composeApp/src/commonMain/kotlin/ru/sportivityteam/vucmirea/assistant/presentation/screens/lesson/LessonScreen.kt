@@ -35,6 +35,7 @@ class LessonScreen(lessonId: String) : BaseScreen() {
             isNavigationButtonEnable = true,
             isActionButtonEnabled = true
         )
+
         BackgroundBox(
             paddingTop = 0.dp,
             horizontalAlignment = Alignment.Start
