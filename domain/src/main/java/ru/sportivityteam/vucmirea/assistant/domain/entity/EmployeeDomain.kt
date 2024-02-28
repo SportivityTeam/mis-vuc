@@ -8,4 +8,5 @@ interface EmployeeDomain {
     val phone: String
     val phoneAdd: String
     val audience: String
+    val type: String
 }
