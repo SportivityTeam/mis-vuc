@@ -10,5 +10,6 @@ internal val basePalette = AssistantColors(
     white = Color(0xFFFFFFFF),
     disable = Color(0xFF525252),
     secondaryText = Color(0xFF8C8C8C),
-    accentDisabled = Color(0x99E77D00)
+    accentDisabled = Color(0x99E77D00),
+    darkBlue = Color(0xff010029)
 )
