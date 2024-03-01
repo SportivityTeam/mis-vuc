@@ -1,17 +1,15 @@
 package ru.sportivityteam.vucmirea.assistant.presentation.screens.home.info
 
-data class HomeViewState(
+data class InfoViewState(
     val isLoading: Boolean = false,
-    val groupNumber: String = "",
-    val date: String = "",
-    val lessons: List<Unit> = listOf()
+
 )
 
-sealed class HomeViewAction {
-    data object NavigateToSettings : HomeViewAction()
-    data class NavigateToLesson(val lessonId: String) : HomeViewAction()
+sealed class InfoViewAction {
+    data object NavigateToSettings : InfoViewAction()
+    data class NavigateToLesson(val lessonId: String) : InfoViewAction()
 }
 
-sealed class HomeViewEvent {
-    data class OpenLesson(val lessonId: String) : HomeViewEvent()
+sealed class InfoViewEvent {
+    data class OpenLesson(val lessonId: String) : InfoViewEvent()
 }
