@@ -1,7 +1,6 @@
 package ru.sportivityteam.vucmirea.assistant.presentation.screens.settings
 
 import cafe.adriel.voyager.core.model.screenModelScope
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import ru.sportivityteam.vucmirea.assistant.domain.usecase.auth.LogoutUseCase
 import ru.sportivityteam.vucmirea.assistant.domain.util.State
