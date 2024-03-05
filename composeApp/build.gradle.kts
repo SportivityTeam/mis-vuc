@@ -61,6 +61,7 @@ kotlin {
             implementation(libs.voyager.koin)
             implementation(libs.kotlinx.serialization.json)
             implementation(libs.koin.core)
+            implementation(libs.lifecycle)
             implementation(libs.moko.resources.core)
             implementation(libs.moko.resources.compose)
             implementation(project(mapOf("path" to ":data")))

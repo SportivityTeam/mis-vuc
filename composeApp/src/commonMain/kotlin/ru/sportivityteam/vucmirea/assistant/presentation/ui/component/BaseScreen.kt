@@ -7,9 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.platform.SoftwareKeyboardController
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import cafe.adriel.voyager.core.screen.Screen
 import ru.sportivityteam.vucmirea.assistant.theme.AppTheme
 
@@ -30,6 +30,13 @@ abstract class BaseScreen : Screen {
                     }
                 }
             }
+        }
+    }
+
+    @Composable
+    fun OnPause(doOnPause: () -> Unit) {
+        LifecycleEventEffect(Lifecycle.Event.ON_PAUSE) {
+            doOnPause()
         }
     }
 
