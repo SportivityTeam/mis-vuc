@@ -7,18 +7,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
@@ -29,6 +24,7 @@ import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.Background
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseBottomSheet
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseButton
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseScreen
+import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.IconTextButton
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.TopNavigationBar
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.VSpacer
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.WSpacer
@@ -51,6 +47,10 @@ class SettingsScreen : BaseScreen() {
             }
         }
 
+        OnPause {
+            screenModel.obtainEvent(SettingsViewEvent.Clear)
+        }
+
         TopNavigationBar(
             navigator,
             title = "Настройки",
@@ -62,22 +62,11 @@ class SettingsScreen : BaseScreen() {
             horizontalAlignment = Alignment.Start
         ) {
             SettingsHeader(appVersion = state.value.appVersion)
-            TextButton(
-                onClick = { screenModel.obtainEvent(SettingsViewEvent.OpenTelegramBottomSheet) },
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color.Transparent,
-                    contentColor = AssistantTheme.colors.white
-                )
+            IconTextButton(
+                iconResId = MR.images.ic_feedback.drawableResId,
+                text = "Обратная связь"
             ) {
-                Icon(
-                    imageVector = ImageVector.vectorResource(id = MR.images.ic_feedback.drawableResId),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .height(40.dp)
-                        .width(40.dp)
-                        .padding(end = 10.dp)
-                )
-                Text(text = "Обратная связь", style = AssistantTheme.typography.h3)
+                screenModel.obtainEvent(SettingsViewEvent.OpenTelegramBottomSheet)
             }
             WSpacer()
             BaseButton(

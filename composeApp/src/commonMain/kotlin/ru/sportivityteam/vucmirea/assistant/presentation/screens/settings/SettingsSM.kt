@@ -50,6 +50,8 @@ class SettingsSM(
 
             SettingsViewEvent.CloseTelegramBottomSheet -> viewState =
                 viewState.copy(isTelegramBottomSheetOpen = false)
+
+            SettingsViewEvent.Clear -> viewAction = null
         }
     }
 }

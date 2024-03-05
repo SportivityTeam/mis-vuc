@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import ru.sportivityteam.vucmirea.assistant.presentation.screens.home.info.InfoViewEvent
 import ru.sportivityteam.vucmirea.assistant.presentation.screens.lesson.LessonScreen
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BackgroundBox
 import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseScreen
@@ -31,11 +32,14 @@ class TimetableScreen : BaseScreen() {
 
         action.value?.let { viewAction ->
             when (viewAction) {
-                is TimetableViewAction.NavigateToLesson -> {
-                    navigator.parent?.parent?.push(LessonScreen(viewAction.lessonId))
-                    screenModel.obtainEvent(TimetableViewEvent.Clear)
-                }
+                is TimetableViewAction.NavigateToLesson -> navigator.parent?.parent?.push(
+                    LessonScreen(viewAction.lessonId)
+                )
             }
+        }
+
+        OnPause {
+            screenModel.obtainEvent(TimetableViewEvent.Clear)
         }
 
         BackgroundBox(

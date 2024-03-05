@@ -20,4 +20,5 @@ sealed class SettingsViewEvent {
     data object OpenTelegram : SettingsViewEvent()
     data object OpenTelegramBottomSheet : SettingsViewEvent()
     data object CloseTelegramBottomSheet : SettingsViewEvent()
+    data object Clear: SettingsViewEvent()
 }
