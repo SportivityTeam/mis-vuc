@@ -8,6 +8,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
@@ -29,7 +30,11 @@ fun RowScope.TabNavigationItem(tab: Tab) {
             )
         },
         colors = NavigationBarItemDefaults.colors(
-            indicatorColor = AssistantTheme.colors.accentDisabled,
+            selectedIconColor = AssistantTheme.colors.white,
+            selectedTextColor = AssistantTheme.colors.white,
+            unselectedIconColor = AssistantTheme.colors.unselectedWhite,
+            unselectedTextColor = AssistantTheme.colors.unselectedWhite,
+            indicatorColor = Color.Transparent,
         )
     )
 }
