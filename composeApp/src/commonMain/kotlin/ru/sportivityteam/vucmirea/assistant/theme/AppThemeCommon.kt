@@ -18,7 +18,8 @@ data class AssistantColors(
     val disable: Color,
     val secondaryText: Color,
     val accentDisabled: Color,
-    val darkBlue: Color
+    val darkBlue: Color,
+    val unselectedWhite: Color
 )
 
 data class AssistantTypography(
