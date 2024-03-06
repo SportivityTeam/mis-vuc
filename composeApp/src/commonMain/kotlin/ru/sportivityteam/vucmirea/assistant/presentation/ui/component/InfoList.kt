@@ -38,7 +38,7 @@ fun InfoList(
             Text(
                 text = infoItem.text,
                 style = AssistantTheme.typography.p2,
-                color = AssistantTheme.colors.white
+                color = AssistantTheme.colors.unselectedWhite
             )
         }
     }

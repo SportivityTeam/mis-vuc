@@ -52,7 +52,7 @@ fun EmployeeCard(
                 text = employee.jobTitle,
                 textAlign = TextAlign.Center,
                 style = AssistantTheme.typography.p3,
-                color = AssistantTheme.colors.white
+                color = AssistantTheme.colors.unselectedWhite
             )
             VSpacer(size = 10.dp)
             Column(
@@ -62,17 +62,17 @@ fun EmployeeCard(
                 Text(
                     text = employee.email,
                     style = AssistantTheme.typography.p4,
-                    color = AssistantTheme.colors.white
+                    color = AssistantTheme.colors.unselectedWhite
                 )
                 Text(
                     text = "${employee.phone} доб. ${employee.phoneAdd}",
                     style = AssistantTheme.typography.p4,
-                    color = AssistantTheme.colors.white
+                    color = AssistantTheme.colors.unselectedWhite
                 )
                 Text(
                     text = employee.audience,
                     style = AssistantTheme.typography.p4,
-                    color = AssistantTheme.colors.white
+                    color = AssistantTheme.colors.unselectedWhite
                 )
             }
         }
