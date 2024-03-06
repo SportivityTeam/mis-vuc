@@ -31,21 +31,22 @@ class TimetableScreen : BaseScreen() {
 
         action.value?.let { viewAction ->
             when (viewAction) {
-                is TimetableViewAction.NavigateToLesson -> navigator.parent?.parent?.push(
-                    LessonScreen(viewAction.lessonId)
-                )
+                is TimetableViewAction.NavigateToLesson -> {
+                    navigator.parent?.parent?.push(
+                        LessonScreen(viewAction.lessonId)
+                    )
+                    screenModel.obtainEvent(TimetableViewEvent.Clear)
+                }
             }
-        }
-
-        OnPause {
-            screenModel.obtainEvent(TimetableViewEvent.Clear)
         }
 
         BackgroundBox(
             paddingTop = 0.dp, paddingBottom = 0.dp
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp)
                     .padding(top = 20.dp, bottom = 10.dp)
             ) {
                 Text(
@@ -60,16 +61,22 @@ class TimetableScreen : BaseScreen() {
                     color = AssistantTheme.colors.white
                 )
             }
-            LazyColumn(modifier = Modifier.fillMaxWidth().padding(horizontal = 10.dp)) {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 10.dp)
+            ) {
                 itemsIndexed(state.value.lessons) { index, lesson ->
                     TimetableListItem(
-                        modifier = Modifier.padding(
-                            vertical = 10.dp
-                        ).clickable {
-                            screenModel.obtainEvent(
-                                TimetableViewEvent.OpenLesson(lesson.id)
+                        modifier = Modifier
+                            .padding(
+                                vertical = 10.dp
                             )
-                        }, index = index + 1, lesson = lesson
+                            .clickable {
+                                screenModel.obtainEvent(
+                                    TimetableViewEvent.OpenLesson(lesson.id)
+                                )
+                            }, index = index + 1, lesson = lesson
                     )
                 }
             }
