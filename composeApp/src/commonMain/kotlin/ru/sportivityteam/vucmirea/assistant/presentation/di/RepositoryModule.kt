@@ -3,8 +3,8 @@
 package ru.sportivityteam.vucmirea.assistant.presentation.di
 
 import org.koin.dsl.module
-import ru.sportivityteam.vucmirea.assistant.data.repository.AuthRepositoryImpl
-import ru.sportivityteam.vucmirea.assistant.domain.repository.auth.AuthRepository
+import ru.sportivityteam.vucmirea.assistant.data.auth.repository.AuthRepositoryImpl
+import ru.sportivityteam.vucmirea.assistant.domain.auth.repository.AuthRepository
 
 
 internal fun repositoryModule() = module {

@@ -1,6 +1,6 @@
-package ru.sportivityteam.vucmirea.assistant.data.entity
+package ru.sportivityteam.vucmirea.assistant.data.auth.entity
 
-import ru.sportivityteam.vucmirea.assistant.domain.entity.LessonDomain
+import ru.sportivityteam.vucmirea.assistant.domain.auth.entity.LessonDomain
 
 data class LessonData(
     override val id: String,

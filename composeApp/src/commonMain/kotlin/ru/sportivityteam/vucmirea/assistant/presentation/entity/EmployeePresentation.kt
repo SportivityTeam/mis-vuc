@@ -1,6 +1,6 @@
 package ru.sportivityteam.vucmirea.assistant.presentation.entity
 
-import ru.sportivityteam.vucmirea.assistant.domain.entity.EmployeeDomain
+import ru.sportivityteam.vucmirea.assistant.domain.auth.entity.EmployeeDomain
 
 data class EmployeePresentation(
     override val imageUri: String,

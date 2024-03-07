@@ -1,4 +1,4 @@
-package ru.sportivityteam.vucmirea.assistant.domain.repository.auth
+package ru.sportivityteam.vucmirea.assistant.domain.auth.repository
 
 import kotlinx.coroutines.flow.Flow
 import ru.sportivityteam.vucmirea.assistant.domain.util.State

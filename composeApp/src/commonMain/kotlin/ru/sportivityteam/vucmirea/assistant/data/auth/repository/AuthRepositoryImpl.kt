@@ -1,19 +1,13 @@
-package ru.sportivityteam.vucmirea.assistant.data.repository
+package ru.sportivityteam.vucmirea.assistant.data.auth.repository
 
-import com.russhwolf.settings.ExperimentalSettingsApi
-import com.russhwolf.settings.Settings
-import com.russhwolf.settings.coroutines.SuspendSettings
-import com.russhwolf.settings.coroutines.toSuspendSettings
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import ru.sportivityteam.vucmirea.assistant.domain.repository.auth.AuthRepository
+import ru.sportivityteam.vucmirea.assistant.domain.auth.repository.AuthRepository
 import ru.sportivityteam.vucmirea.assistant.domain.util.State
 
-@ExperimentalSettingsApi
 class AuthRepositoryImpl : AuthRepository {
-    private val settings: SuspendSettings = Settings().toSuspendSettings(Dispatchers.IO)
 
     override val isUserLogin: Flow<State<Boolean>> = flow<State<Boolean>> {
         emit(State.loading())

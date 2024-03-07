@@ -1,4 +1,4 @@
-package ru.sportivityteam.vucmirea.assistant.domain.entity
+package ru.sportivityteam.vucmirea.assistant.domain.auth.entity
 
 interface LessonDomain {
     val id: String

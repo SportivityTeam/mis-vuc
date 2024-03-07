@@ -15,5 +15,3 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-include(":data")
-include(":domain")
