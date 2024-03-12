@@ -1,5 +1,3 @@
-@file:Suppress("OPT_IN_USAGE")
-
 package ru.sportivityteam.vucmirea.assistant.presentation.di
 
 import org.koin.dsl.module
@@ -8,5 +6,5 @@ import ru.sportivityteam.vucmirea.assistant.domain.auth.repository.AuthRepositor
 
 
 internal fun repositoryModule() = module {
-    single<AuthRepository> { AuthRepositoryImpl() }
+    single<AuthRepository> { AuthRepositoryImpl(get()) }
 }
