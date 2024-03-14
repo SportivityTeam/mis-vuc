@@ -5,6 +5,6 @@ import ru.sportivityteam.vucmirea.assistant.auth.data.AuthRepositoryImpl
 import ru.sportivityteam.vucmirea.assistant.auth.domain.AuthRepository
 
 
-internal fun repositoryModule() = module {
+internal val repositoryModule = module {
     single<AuthRepository> { AuthRepositoryImpl(get()) }
 }

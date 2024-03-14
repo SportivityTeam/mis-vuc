@@ -9,7 +9,7 @@ import ru.sportivityteam.vucmirea.assistant.lesson.ui.LessonSM
 import ru.sportivityteam.vucmirea.assistant.settings.ui.SettingsSM
 import ru.sportivityteam.vucmirea.assistant.splash.ui.SplashSM
 
-internal fun screenModelsModule() = module {
+internal val screenModelsModule = module {
     factory { SplashSM(get()) }
     factory { AuthSM(get()) }
     factory { TimetableSM() }

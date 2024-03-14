@@ -8,7 +8,7 @@ import ru.sportivityteam.vucmirea.assistant.domain.usecase.auth.GetUserLoginUseC
 import ru.sportivityteam.vucmirea.assistant.auth.domain.usecase.LogoutUseCase
 import ru.sportivityteam.vucmirea.assistant.auth.domain.usecase.LogoutUseCaseImpl
 
-internal fun useCaseModule() = module {
+internal val useCaseModule = module {
     factory<GetUserLoginUseCase> { GetUserLoginUseCaseImpl(get()) }
     factory<AuthUserUseCase> { AuthUserUseCaseImpl(get()) }
     factory<LogoutUseCase> { LogoutUseCaseImpl(get()) }
