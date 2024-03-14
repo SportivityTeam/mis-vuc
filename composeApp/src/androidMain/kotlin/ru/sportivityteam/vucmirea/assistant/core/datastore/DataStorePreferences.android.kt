@@ -1,24 +1,23 @@
-package ru.sportivityteam.vucmirea.assistant.datastore
+package ru.sportivityteam.vucmirea.assistant.core.datastore
 
+import android.content.Context
 import androidx.datastore.core.DataMigration
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.handlers.ReplaceFileCorruptionHandler
 import androidx.datastore.preferences.core.Preferences
-import kotlinx.coroutines.CoroutineScope
-import ru.sportivityteam.vucmirea.assistant.core.datastore.SETTINGS_PREFERENCES
-import ru.sportivityteam.vucmirea.assistant.core.datastore.createDataStoreWithDefaults
-import ru.sportivityteam.vucmirea.assistant.util.applicationContext
 import java.io.File
 
 actual fun dataStorePreferences(
     corruptionHandler: ReplaceFileCorruptionHandler<Preferences>?,
-    coroutineScope: CoroutineScope,
     migrations: List<DataMigration<Preferences>>,
+    context: Any?
 ): DataStore<Preferences> = createDataStoreWithDefaults(
     corruptionHandler = corruptionHandler,
     migrations = migrations,
-    coroutineScope = coroutineScope,
-    path = {
-        File(applicationContext.filesDir, "datastore/$SETTINGS_PREFERENCES").path
+    context = context,
+    path = {mContext ->
+        if(mContext == null)
+            throw IllegalStateException("You must provide context for Android")
+        else File((mContext as Context).filesDir, "datastore/$SETTINGS_PREFERENCES").path
     }
 )

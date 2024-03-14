@@ -12,8 +12,8 @@ import okio.Path.Companion.toPath
 
 expect fun dataStorePreferences(
     corruptionHandler: ReplaceFileCorruptionHandler<Preferences>?,
-    coroutineScope: CoroutineScope,
     migrations: List<DataMigration<Preferences>>,
+    context: Any?
 ): DataStore<Preferences>
 
 internal const val SETTINGS_PREFERENCES = "settings_preferences.preferences_pb"
@@ -22,13 +22,14 @@ internal fun createDataStoreWithDefaults(
     corruptionHandler: ReplaceFileCorruptionHandler<Preferences>? = null,
     coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.IO + SupervisorJob()),
     migrations: List<DataMigration<Preferences>> = emptyList(),
-    path: () -> String,
+    context: Any? = null,
+    path: (context: Any?) -> String,
 ) = PreferenceDataStoreFactory
     .createWithPath(
         corruptionHandler = corruptionHandler,
         scope = coroutineScope,
         migrations = migrations,
         produceFile = {
-            path().toPath()
+            path(context).toPath()
         }
     )
