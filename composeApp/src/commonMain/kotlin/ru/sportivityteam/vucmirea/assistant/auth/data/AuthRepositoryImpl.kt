@@ -40,7 +40,7 @@ class AuthRepositoryImpl(
     override suspend fun logout(): Flow<State<Unit>> = flow<State<Unit>> {
         emit(State.loading())
         dataStore.edit { preferences ->
-            preferences[isUserLoginPrefs] = true
+            preferences[isUserLoginPrefs] = false
         }
         emit(State.success())
     }.flowOn(Dispatchers.IO)
