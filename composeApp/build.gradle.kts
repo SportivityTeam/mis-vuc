@@ -64,8 +64,7 @@ kotlin {
             implementation(libs.lifecycle)
             implementation(libs.moko.resources.core)
             implementation(libs.moko.resources.compose)
-            implementation(project(mapOf("path" to ":data")))
-            implementation(project(mapOf("path" to ":domain")))
+            implementation(libs.data.store.core)
         }
 
         commonTest.dependencies {
@@ -80,6 +79,7 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
             implementation(libs.sqlDelight.driver.android)
             implementation(libs.koin.android)
+            api(libs.androidx.startup)
         }
 
         iosMain.dependencies {

@@ -5,7 +5,7 @@ compose = "1.6.0-rc03"
 agp = "8.2.2"
 androidx-appcompat = "1.6.1"
 androidx-activityCompose = "1.8.2"
-compose-uitooling = "1.6.2"
+compose-uitooling = "1.6.3"
 napier = "2.7.0"
 buildConfig = "4.1.1"
 kotlinx-coroutines = "1.8.0"
@@ -16,9 +16,10 @@ koin = "3.5.3"
 sqlDelight = "2.0.1"
 moko-resources = "0.24.0-alpha-3"
 org-jetbrains-kotlin-jvm = "1.9.22"
-msettings = "1.1.1"
+data-store = "1.1.0-beta02"
 coil = "3.0.0-alpha04"
 lifecycle = "2.7.0"
+androidx-startup = "1.1.1"
 
 [libraries]
 
@@ -41,15 +42,14 @@ sqlDelight-driver-native = { module = "app.cash.sqldelight:native-driver", versi
 moko-resources-genereator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko-resources" }
 moko-resources-core = { module = "dev.icerock.moko:resources", version.ref = "moko-resources" }
 moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }
-msettings-core = { module = "com.russhwolf:multiplatform-settings", version.ref = "msettings" }
-msettings-coroutines = { module = "com.russhwolf:multiplatform-settings-coroutines", version.ref = "msettings" }
-msettings-noarg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "msettings" }
+data-store-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "data-store" }
 voyager-screenmodel = { module = "cafe.adriel.voyager:voyager-screenmodel", version.ref = "voyager" }
 voyager-koin = { module = "cafe.adriel.voyager:voyager-koin", version.ref = "voyager" }
 coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil" }
 lifecycle = {module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle"}
+androidx-startup = { module = "androidx.startup:startup-runtime", version.ref = "androidx-startup" }
 
 [plugins]
 
