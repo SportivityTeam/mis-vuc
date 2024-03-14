@@ -14,12 +14,12 @@ import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
 import ru.sportivityteam.vucmirea.assistant.MR
-import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BackgroundBox
-import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.BaseScreen
-import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.TopNavigationBar
-import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.VSpacer
-import ru.sportivityteam.vucmirea.assistant.presentation.ui.component.WSpacer
-import ru.sportivityteam.vucmirea.assistant.presentation.ui.mvi.observeAsState
+import ru.sportivityteam.vucmirea.assistant.core.uikit.component.BackgroundBox
+import ru.sportivityteam.vucmirea.assistant.core.uikit.component.BaseScreen
+import ru.sportivityteam.vucmirea.assistant.core.uikit.component.TopNavigationBar
+import ru.sportivityteam.vucmirea.assistant.core.uikit.component.VSpacer
+import ru.sportivityteam.vucmirea.assistant.core.uikit.component.WSpacer
+import ru.sportivityteam.vucmirea.assistant.core.uikit.mvi.observeAsState
 import ru.sportivityteam.vucmirea.assistant.core.uikit.theme.AssistantTheme
 
 class LessonScreen(lessonId: String) : BaseScreen() {
