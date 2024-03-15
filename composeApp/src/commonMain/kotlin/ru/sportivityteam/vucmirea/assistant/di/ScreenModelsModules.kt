@@ -12,7 +12,7 @@ import ru.sportivityteam.vucmirea.assistant.splash.ui.SplashSM
 internal val screenModelsModule = module {
     factory { SplashSM(get()) }
     factory { AuthSM(get()) }
-    factory { TimetableSM() }
+    factory { TimetableSM(get()) }
     factory { EmployeeSM() }
     factory { InfoSM() }
     factory { SettingsSM(get()) }
