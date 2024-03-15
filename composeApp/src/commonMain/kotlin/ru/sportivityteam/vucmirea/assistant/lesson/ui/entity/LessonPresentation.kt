@@ -9,3 +9,11 @@ data class LessonPresentation(
     override val employee: String,
     override val lessonTime: String
 ) : LessonDomain
+
+fun LessonDomain.toPresentation(): LessonPresentation = LessonPresentation(
+    id = id,
+    audience = audience,
+    lesson = lesson,
+    employee = employee,
+    lessonTime = lessonTime,
+)
