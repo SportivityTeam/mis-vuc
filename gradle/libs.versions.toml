@@ -10,7 +10,7 @@ napier = "2.7.0"
 buildConfig = "4.1.1"
 kotlinx-coroutines = "1.8.0"
 voyager = "1.0.0"
-ktor = "2.3.8"
+ktor = "2.3.9"
 kotlinx-serialization = "1.6.2"
 koin = "3.5.3"
 sqlDelight = "2.0.1"
@@ -34,9 +34,14 @@ kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutine
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-resource = { module = "io.ktor:ktor-client-resources", version.ref = "ktor" }
+ktor-neogination = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-gson = { module = "io.ktor:ktor-serialization-gson", version.ref = "ktor" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin" }
 sqlDelight-driver-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
 sqlDelight-driver-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
 moko-resources-genereator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko-resources" }
