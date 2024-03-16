@@ -13,7 +13,7 @@ internal val screenModelsModule = module {
     factory { SplashSM(get()) }
     factory { AuthSM(get()) }
     factory { TimetableSM(get()) }
-    factory { EmployeeSM() }
+    factory { EmployeeSM(get()) }
     factory { InfoSM() }
     factory { SettingsSM(get()) }
     factory { LessonSM() }
