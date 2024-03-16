@@ -14,17 +14,17 @@ class TimetableSM(
 
     init {
         screenModelScope.launch {
-            getLessonByGroupNumberUseCase.invoke("").collect { state ->
-                when (state) {
-                    is State.Loading -> viewState = viewState.copy(isLoading = true)
-                    is State.Success -> {
-                        val lessons = state.data!!.toPresentationModel()
-                        viewState = viewState.copy(isLoading = false, lessons = lessons)
-                    }
-
-                    is State.Failed -> {}
-                }
-            }
+//            getLessonByGroupNumberUseCase.invoke("").collect { state ->
+//                when (state) {
+//                    is State.Loading -> viewState = viewState.copy(isLoading = true)
+//                    is State.Success -> {
+//                        val lessons = state.data!!.toPresentationModel()
+//                        viewState = viewState.copy(isLoading = false, lessons = lessons)
+//                    }
+//
+//                    is State.Failed -> {}
+//                }
+//            }
         }
     }
 
