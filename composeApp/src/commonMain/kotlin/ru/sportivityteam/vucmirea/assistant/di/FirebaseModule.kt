@@ -2,7 +2,6 @@ package ru.sportivityteam.vucmirea.assistant.di
 
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.FirebaseApp
-import dev.gitlive.firebase.FirebaseOptions
 import dev.gitlive.firebase.firestore.FirebaseFirestore
 import dev.gitlive.firebase.firestore.firestore
 import dev.gitlive.firebase.initialize
