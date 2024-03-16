@@ -1,6 +1,7 @@
 package ru.sportivityteam.vucmirea.assistant.di
 
 import ru.sportivityteam.vucmirea.assistant.core.ktor.ktorModule
+import ru.sportivityteam.vucmirea.assistant.home.employee.di.employeeUseCaseModule
 import ru.sportivityteam.vucmirea.assistant.home.schedule.di.scheduleUseCaseModule
 
 internal fun appModule() =
@@ -11,5 +12,7 @@ internal fun appModule() =
         platformDatastoreModule,
         ktorModule,
         scheduleUseCaseModule,
+        employeeUseCaseModule,
+        firebaseModule,
         apiModule
     )
