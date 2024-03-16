@@ -16,10 +16,14 @@ koin = "3.5.3"
 sqlDelight = "2.0.1"
 moko-resources = "0.24.0-alpha-3"
 org-jetbrains-kotlin-jvm = "1.9.22"
+google-services = "4.4.1"
 data-store = "1.1.0-beta02"
 coil = "3.0.0-alpha04"
 lifecycle = "2.7.0"
 androidx-startup = "1.1.1"
+firebaseCommon = "1.11.1"
+firebaseJava = "0.3.1"
+firebaseBom = "32.7.4"
 
 [libraries]
 
@@ -56,6 +60,11 @@ coil-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil
 lifecycle = {module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle"}
 androidx-startup = { module = "androidx.startup:startup-runtime", version.ref = "androidx-startup" }
 
+# Firebase
+firebase-common = { module = "dev.gitlive:firebase-common", version.ref = "firebaseCommon" }
+firebase-firestore = { module = "dev.gitlive:firebase-firestore", version.ref = "firebaseCommon" }
+firebase-java = { module = "dev.gitlive:firebase-java-sdk", version.ref = "firebaseJava" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 [plugins]
 
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
@@ -65,3 +74,4 @@ buildConfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildConfig
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 sqlDelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
 org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }

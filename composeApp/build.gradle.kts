@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.sqlDelight)
     id("dev.icerock.mobile.multiplatform-resources")
+    alias(libs.plugins.google.services)
 }
 
 kotlin {
@@ -70,6 +71,11 @@ kotlin {
             implementation(libs.moko.resources.core)
             implementation(libs.moko.resources.compose)
             implementation(libs.data.store.core)
+
+            // Firebase
+            implementation(libs.firebase.common)
+            implementation(libs.firebase.firestore)
+//            implementation(libs.firebase.java)
         }
 
         commonTest.dependencies {
@@ -84,6 +90,7 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
             implementation(libs.sqlDelight.driver.android)
             implementation(libs.koin.android)
+            implementation(project.dependencies.platform(libs.firebase.bom))
             api(libs.androidx.startup)
         }
 
