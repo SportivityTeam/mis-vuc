@@ -48,6 +48,7 @@ koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin" }
 sqlDelight-driver-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
 sqlDelight-driver-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
+sqlDelight-driver-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
 moko-resources-genereator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko-resources" }
 moko-resources-core = { module = "dev.icerock.moko:resources", version.ref = "moko-resources" }
 moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }

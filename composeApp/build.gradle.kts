@@ -8,7 +8,6 @@ plugins {
     id("dev.icerock.mobile.multiplatform-resources")
     alias(libs.plugins.google.services)
 }
-
 kotlin {
     androidTarget {
         compilations.all {
@@ -71,7 +70,7 @@ kotlin {
             implementation(libs.moko.resources.core)
             implementation(libs.moko.resources.compose)
             implementation(libs.data.store.core)
-
+            implementation(libs.sqlDelight.driver.coroutines)
             // Firebase
             implementation(libs.firebase.common)
             implementation(libs.firebase.firestore)
@@ -137,10 +136,11 @@ buildConfig {
 
 sqldelight {
     databases {
-        create("MyDatabase") {
+        create("AssistantDatabase") {
             // Database configuration here.
             // https://cashapp.github.io/sqldelight
-            packageName.set("ru.sportivityteam.vucmirea.assistant.db")
+            packageName.set("ru.sportivityteam.vucmirea.assistant")
+            srcDirs.setFrom("src/main/sqldelight")
         }
     }
 }
