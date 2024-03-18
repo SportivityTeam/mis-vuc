@@ -136,11 +136,11 @@ buildConfig {
 
 sqldelight {
     databases {
-        create("AssistantDatabase") {
+        create("Database") {
             // Database configuration here.
             // https://cashapp.github.io/sqldelight
-            packageName.set("ru.sportivityteam.vucmirea.assistant")
-            srcDirs.setFrom("src/main/sqldelight")
+            packageName.set("ru.sportivityteam.vucmirea.assistant.core.database")
+            generateAsync.set(true)
         }
     }
 }
