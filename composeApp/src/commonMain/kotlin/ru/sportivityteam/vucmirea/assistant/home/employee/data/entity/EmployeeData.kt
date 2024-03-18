@@ -5,6 +5,7 @@ import ru.sportivityteam.vucmirea.assistant.home.employee.domain.entity.Employee
 
 @Serializable
 data class EmployeeData(
+    override val id: String,
     override val imageUri: String,
     override val fullName: String,
     override val jobTitle: String,
