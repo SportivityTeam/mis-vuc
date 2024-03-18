@@ -25,7 +25,7 @@ fun EmployeeCard(
     employee: EmployeePresentation
 ) {
     Row(
-        modifier = Modifier.fillMaxSize().padding(horizontal = 5.dp, vertical = 25.dp),
+        modifier = Modifier.fillMaxSize().padding(horizontal = 10.dp, vertical = 25.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
         AsyncImage(
@@ -38,7 +38,7 @@ fun EmployeeCard(
             contentDescription = null
         )
         Column(
-            modifier = Modifier.fillMaxWidth().weight(weight = 2f),
+            modifier = Modifier.fillMaxWidth().weight(weight = 2f).padding(horizontal = 5.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(

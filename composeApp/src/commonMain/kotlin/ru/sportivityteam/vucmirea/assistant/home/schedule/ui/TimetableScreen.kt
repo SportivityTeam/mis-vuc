@@ -13,13 +13,13 @@ import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.koin.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
-import ru.sportivityteam.vucmirea.assistant.lesson.ui.LessonScreen
 import ru.sportivityteam.vucmirea.assistant.core.uikit.component.BackgroundBox
 import ru.sportivityteam.vucmirea.assistant.core.uikit.component.BaseScreen
 import ru.sportivityteam.vucmirea.assistant.core.uikit.component.TimetableListItem
 import ru.sportivityteam.vucmirea.assistant.core.uikit.component.WSpacer
 import ru.sportivityteam.vucmirea.assistant.core.uikit.mvi.observeAsState
 import ru.sportivityteam.vucmirea.assistant.core.uikit.theme.AssistantTheme
+import ru.sportivityteam.vucmirea.assistant.lesson.ui.LessonScreen
 
 class TimetableScreen : BaseScreen() {
     @Composable
@@ -56,7 +56,7 @@ class TimetableScreen : BaseScreen() {
                 )
                 WSpacer()
                 Text(
-                    text = state.value.date,
+                    text = state.value.lessons.date,
                     style = AssistantTheme.typography.h3,
                     color = AssistantTheme.colors.white
                 )
@@ -66,7 +66,7 @@ class TimetableScreen : BaseScreen() {
                     .fillMaxWidth()
                     .padding(horizontal = 10.dp)
             ) {
-                itemsIndexed(state.value.lessons) { index, lesson ->
+                itemsIndexed(state.value.lessons.lessonsList) { index, lesson ->
                     TimetableListItem(
                         modifier = Modifier
                             .padding(

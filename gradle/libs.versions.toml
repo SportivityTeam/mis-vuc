@@ -2,7 +2,7 @@
 
 kotlin = "1.9.22"
 compose = "1.6.0-rc03"
-agp = "8.2.2"
+agp = "8.3.0"
 androidx-appcompat = "1.6.1"
 androidx-activityCompose = "1.8.2"
 compose-uitooling = "1.6.3"
@@ -10,16 +10,20 @@ napier = "2.7.0"
 buildConfig = "4.1.1"
 kotlinx-coroutines = "1.8.0"
 voyager = "1.0.0"
-ktor = "2.3.8"
+ktor = "2.3.9"
 kotlinx-serialization = "1.6.2"
 koin = "3.5.3"
 sqlDelight = "2.0.1"
 moko-resources = "0.24.0-alpha-3"
 org-jetbrains-kotlin-jvm = "1.9.22"
+google-services = "4.4.1"
 data-store = "1.1.0-beta02"
 coil = "3.0.0-alpha04"
 lifecycle = "2.7.0"
 androidx-startup = "1.1.1"
+firebaseCommon = "1.11.1"
+firebaseJava = "0.3.1"
+firebaseBom = "32.7.4"
 
 [libraries]
 
@@ -34,11 +38,17 @@ kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutine
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-resource = { module = "io.ktor:ktor-client-resources", version.ref = "ktor" }
+ktor-neogination = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-gson = { module = "io.ktor:ktor-serialization-gson", version.ref = "ktor" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-ktor = { module = "io.insert-koin:koin-ktor", version.ref = "koin" }
 sqlDelight-driver-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
 sqlDelight-driver-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
+sqlDelight-driver-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
 moko-resources-genereator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko-resources" }
 moko-resources-core = { module = "dev.icerock.moko:resources", version.ref = "moko-resources" }
 moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }
@@ -51,6 +61,11 @@ coil-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil
 lifecycle = {module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle"}
 androidx-startup = { module = "androidx.startup:startup-runtime", version.ref = "androidx-startup" }
 
+# Firebase
+firebase-common = { module = "dev.gitlive:firebase-common", version.ref = "firebaseCommon" }
+firebase-firestore = { module = "dev.gitlive:firebase-firestore", version.ref = "firebaseCommon" }
+firebase-java = { module = "dev.gitlive:firebase-java-sdk", version.ref = "firebaseJava" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 [plugins]
 
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
@@ -60,3 +75,4 @@ buildConfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildConfig
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 sqlDelight = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
 org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }

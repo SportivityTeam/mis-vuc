@@ -6,8 +6,8 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.sqlDelight)
     id("dev.icerock.mobile.multiplatform-resources")
+    alias(libs.plugins.google.services)
 }
-
 kotlin {
     androidTarget {
         compilations.all {
@@ -57,6 +57,11 @@ kotlin {
             implementation(libs.napier)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.ktor.core)
+            implementation(libs.ktor.neogination)
+            implementation(libs.ktor.gson)
+            implementation(libs.ktor.logging)
+            implementation(libs.koin.ktor)
+            implementation(libs.ktor.client.resource)
             implementation(libs.voyager.screenmodel)
             implementation(libs.voyager.koin)
             implementation(libs.kotlinx.serialization.json)
@@ -65,6 +70,11 @@ kotlin {
             implementation(libs.moko.resources.core)
             implementation(libs.moko.resources.compose)
             implementation(libs.data.store.core)
+            implementation(libs.sqlDelight.driver.coroutines)
+            // Firebase
+            implementation(libs.firebase.common)
+            implementation(libs.firebase.firestore)
+//            implementation(libs.firebase.java)
         }
 
         commonTest.dependencies {
@@ -79,6 +89,7 @@ kotlin {
             implementation(libs.ktor.client.okhttp)
             implementation(libs.sqlDelight.driver.android)
             implementation(libs.koin.android)
+            implementation(project.dependencies.platform(libs.firebase.bom))
             api(libs.androidx.startup)
         }
 
@@ -125,10 +136,11 @@ buildConfig {
 
 sqldelight {
     databases {
-        create("MyDatabase") {
+        create("Database") {
             // Database configuration here.
             // https://cashapp.github.io/sqldelight
-            packageName.set("ru.sportivityteam.vucmirea.assistant.db")
+            packageName.set("ru.sportivityteam.vucmirea.assistant.core.database")
+            generateAsync.set(true)
         }
     }
 }

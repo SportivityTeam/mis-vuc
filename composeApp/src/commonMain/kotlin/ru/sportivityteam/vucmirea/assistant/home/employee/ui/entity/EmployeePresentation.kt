@@ -3,6 +3,7 @@ package ru.sportivityteam.vucmirea.assistant.home.employee.ui.entity
 import ru.sportivityteam.vucmirea.assistant.home.employee.domain.entity.EmployeeDomain
 
 data class EmployeePresentation(
+    override val id: String,
     override val imageUri: String,
     override val fullName: String,
     override val jobTitle: String,
@@ -12,3 +13,16 @@ data class EmployeePresentation(
     override val audience: String,
     override val type: String
 ) : EmployeeDomain
+
+
+fun EmployeeDomain.toPresentation() = EmployeePresentation(
+    id = id,
+    imageUri = imageUri,
+    fullName = fullName,
+    jobTitle = jobTitle,
+    email = email,
+    phone = phone,
+    phoneAdd = phoneAdd,
+    audience = audience,
+    type = type
+)

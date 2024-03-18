@@ -1,6 +1,7 @@
 package ru.sportivityteam.vucmirea.assistant.home.employee.domain.entity
 
 interface EmployeeDomain {
+    val id: String
     val imageUri: String
     val fullName: String
     val jobTitle: String

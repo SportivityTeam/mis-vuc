@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "588508108041",
+    "project_id": "mis-vuc",
+    "storage_bucket": "mis-vuc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588508108041:android:5aec223849d8612a256fd8",
+        "android_client_info": {
+          "package_name": "ru.sportivityteam.vucmirea.assistant"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZX5El0LJvS0CjoqcRAisYGTEiHW4pCeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588508108041:android:8d6aabe464368aba256fd8",
+        "android_client_info": {
+          "package_name": "ru.sportivityteam.vucmirea.assistant.androidApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZX5El0LJvS0CjoqcRAisYGTEiHW4pCeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
