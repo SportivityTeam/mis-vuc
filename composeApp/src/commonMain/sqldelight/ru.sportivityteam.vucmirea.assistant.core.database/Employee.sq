@@ -1,0 +1,21 @@
+--Employee
+CREATE TABLE IF NOT EXISTS Employee (
+    id TEXT PRIMARY KEY NOT NULL,
+    imageUri TEXT NOT NULL,
+    fullName TEXT NOT NULL,
+    jobTitle TEXT NOT NULL,
+    email TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    phoneAdd TEXT NOT NULL,
+    audience TEXT NOT NULL,
+    type TEXT NOT NULL
+);
+
+selectAllEmployee:
+SELECT Employee.*
+FROM Employee;
+
+insertEmployee:
+INSERT OR REPLACE
+INTO Employee
+VALUES ?;
