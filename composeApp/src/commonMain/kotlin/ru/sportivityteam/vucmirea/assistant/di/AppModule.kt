@@ -1,18 +1,19 @@
 package ru.sportivityteam.vucmirea.assistant.di
 
+import org.koin.core.module.Module
 import ru.sportivityteam.vucmirea.assistant.core.ktor.ktorModule
-import ru.sportivityteam.vucmirea.assistant.home.employee.di.employeeUseCaseModule
-import ru.sportivityteam.vucmirea.assistant.home.schedule.di.scheduleUseCaseModule
 
-internal fun appModule() =
-    listOf(
+internal fun appModule(): List<Module> {
+    val modulesList = mutableListOf(
         repositoryModule,
-        useCaseModule,
         screenModelsModule,
         platformDatastoreModule,
+        platformDatabaseModule,
         ktorModule,
-        scheduleUseCaseModule,
-        employeeUseCaseModule,
         firebaseModule,
         apiModule
     )
+    modulesList.addAll(useCaseModule)
+
+    return modulesList.toList()
+}
