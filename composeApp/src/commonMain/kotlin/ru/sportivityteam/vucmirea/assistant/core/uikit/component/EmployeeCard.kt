@@ -16,12 +16,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import coil3.ImageLoader
 import coil3.compose.AsyncImage
 import coil3.request.ImageRequest
 import ru.sportivityteam.vucmirea.assistant.MR
-import ru.sportivityteam.vucmirea.assistant.home.employee.ui.entity.EmployeePresentation
 import ru.sportivityteam.vucmirea.assistant.core.uikit.theme.AssistantTheme
+import ru.sportivityteam.vucmirea.assistant.home.employee.ui.entity.EmployeePresentation
 
 @Composable
 fun EmployeeCard(
