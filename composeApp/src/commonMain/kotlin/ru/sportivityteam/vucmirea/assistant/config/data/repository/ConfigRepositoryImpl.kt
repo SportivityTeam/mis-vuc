@@ -10,7 +10,7 @@ import ru.sportivityteam.vucmirea.assistant.home.employee.domain.repository.Empl
 
 class ConfigRepositoryImpl(private val employeeRepository: EmployeeRepository) : ConfigRepository {
     override suspend fun configApp(): Flow<State<Unit>> = flow<State<Unit>> {
-        emit(State.success())
+        emit(State.loading())
         employeeRepository.configure().collect {
             if (it is State.Success) emit(State.success())
         }
